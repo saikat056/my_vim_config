@@ -1,0 +1,42 @@
+autocmd QuickFixCmdPost *grep* cwindow
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
+let g:ctrlp_working_path_mode = 'ra'
+set clipboard=unnamed
+
+" vim-rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+let g:rspec_command = "Dispatch docker-compose exec portal bin/rspec {spec}"
+
+function! FollowTag()
+  if !exists("w:tagbrowse")
+    vsplit
+    let w:tagbrowse=1
+  endif
+  execute "tag " . expand("<cword>")
+endfunction
+
+nnoremap <c-]> :call FollowTag()<CR>
+nnoremap <silent> <leader>f :NERDTreeFind<cr>
+map <C-a> :%y<CR>
+let g:pymode_python = 'python3'
+if has('python3')
+  silent! python3 1
+endif
+
+filetype on
+" autocmd BufNewFile,BufRead *.html.erb set filetype=html
+" autocmd BufNewFile,BufRead *.{css.erb,css.scss} set filetype=css
+autocmd BufNewFile,BufRead *.js.coffee set filetype=javascript
+" autocmd BufNewFile,BufRead *.{yaml,yml} set filetype=yaml.ansible
+autocmd FileType javascript vnoremap  <c-f> :call RangeJsBeautify()<cr>
+" autocmd FileType json vnoremap  <c-f> :call RangeJsonBeautify()<cr>
+" autocmd FileType jsx vnoremap <c-f> :call RangeJsxBeautify()<cr>
+" autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+" autocmd FileType css vnoremap <c-f> :call RangeCSSBeautify()<cr>
+" autocmd FileType yaml.ansible setlocal ts=2 sts=2 sw=2 expandtab
+filetype plugin indent on
+nnoremap <C-t> :tabnew<Space>
+

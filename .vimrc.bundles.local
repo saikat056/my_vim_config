@@ -1,0 +1,8 @@
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-dispatch'
+Bundle 'ngmy/vim-rubocop'
+Bundle 'rking/ag.vim'
+Bundle 'tpope/vim-ragtag'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'KurtPreston/vim-autoformat-rails'
+Bundle 'fatih/vim-go'
