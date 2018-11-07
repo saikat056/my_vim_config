@@ -40,3 +40,16 @@ autocmd FileType javascript vnoremap  <c-f> :call RangeJsBeautify()<cr>
 filetype plugin indent on
 nnoremap <C-t> :tabnew<Space>
 
+"Golang related configuration"
+let $PATH=$HOME."/go/bin:".$PATH
+let $GOPATH=$HOME."/Documents/go_lang_proj"
+autocmd FileType go nmap gb  <Plug>(go-build)
+autocmd FileType go nmap gr  <Plug>(go-run)
+autocmd FileType go map en :cnext<CR>
+autocmd FileType go map ep :cprevious<CR>
+autocmd FileType go nnoremap ec :cclose<CR>
+autocmd FileType go nmap gt  <Plug>(go-test)
+
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
