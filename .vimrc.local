@@ -8,7 +8,7 @@ set clipboard=unnamed
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-let g:rspec_command = "Dispatch docker-compose exec portal bin/rspec {spec}"
+let g:rspec_command = "Dispatch docker-compose exec portal bundle exec rspec {spec}"
 
 function! FollowTag()
   if !exists("w:tagbrowse")
@@ -53,3 +53,5 @@ autocmd FileType go nmap gt  <Plug>(go-test)
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+let g:neocomplete#enable_at_startup = 0
+autocmd VimLeave *.rb :!rm -rf ~/.vimviews/
